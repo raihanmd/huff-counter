@@ -1,0 +1,51 @@
+// 0x3fb5c1cb0000000000000000000000000000000000000000000000000000000000000001 => call setNumber(uint256) with 0x01 data
+// 0xf2c9ecd8 => call getNumber()
+
+/// interfaces ///
+#define function setNumber(uint256) nonpayable returns()
+#define function getNumber() view returns(uint256)
+
+#define macro MAIN() = takes(0) returns(0) {
+    // slot 0 => uint256
+
+    0x00 // [0]
+    calldataload // [calldata 32]
+
+    0xe0 // [e0, calldata]
+    shr  // [func_sel]
+
+    dup1 // [func_sel, func_sel]
+
+    __FUNC_SIG(setNumber) // [setNumber, func_sel, func_sel]
+    eq // [result_eq, func_sel]
+
+    SET_NUMBER // [set_number_pc, result_eq, func_sel]
+    jumpi // [func_sel]
+
+    __FUNC_SIG(getNumber) // [getNumber, func_sel]
+    eq // [result_eq, func_sel]
+
+    GET_NUMBER // [incrment_pc, func_sel]
+    jumpi // []
+
+    0xeeeeeee1 0x00 mstore // err bytes msg
+    0x04 0x1c revert // revert with 4 bytes with 0x1c offset (28 bytes)
+
+    // setNumber(uint256) selector = 0x3fb5c1cb
+    SET_NUMBER:
+        SET_NUMBER()
+
+    // getNumber() selector = 0xf2c9ecd8
+    GET_NUMBER:
+        GET_NUMBER()
+}
+
+#define macro SET_NUMBER() = takes(1) returns(0) {
+
+}
+
+#define macro GET_NUMBER() = takes(0) returns(1) {
+    0x00 sload // load slot 0
+    0x00 mstore // push to memory
+    0x20 0x00 return // return 32 bytes with offset 0 from mem
+}
