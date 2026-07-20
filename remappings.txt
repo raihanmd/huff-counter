@@ -1,0 +1,1 @@
+foundry-huff-neo=lib/foundry-huff-neo/src/

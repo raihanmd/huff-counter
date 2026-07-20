@@ -4,5 +4,11 @@
       "name": "v1.16.2",
       "rev": "bf647bd6046f2f7da30d0c2bf435e5c76a780c1b"
     }
+  },
+  "lib/foundry-huff-neo": {
+    "tag": {
+      "name": "v1.1.0",
+      "rev": "4b6df04b1f19080bca990cfae82098e1efb9e413"
+    }
   }
 }
