@@ -7,23 +7,20 @@ alright alright so in this kind of repo im just do bunch of stuff translating fr
 `Counter.sol`
 
 ```solidity
-contract CounterTest is Test {
-    ICounter counter;
-    ICounter counterHuff;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
 
-    function setUp() public {
-        counter = ICounter(new Counter());
-        counterHuff = ICounter(HuffNeoDeployer.deploy("src/Counter.huff"));
+import {ICounter} from "./interfaces/ICounter.sol";
+
+contract Counter is ICounter {
+    uint256 private number;
+
+    function setNumber(uint256 newNumber) external {
+        number = newNumber;
     }
 
-    function test_Sol() public {
-        counter.setNumber(42);
-        assertEq(counter.getNumber(), 42);
-    }
-
-    function test_Huff() public {
-        counterHuff.setNumber(42);
-        assertEq(counterHuff.getNumber(), 42);
+    function getNumber() external view returns (uint256) {
+        return number;
     }
 }
 ```
