@@ -1,5 +1,7 @@
 ## Huff
 
+![Image](./images/screenshot-2026-07-20_13-50-53.png)
+
 Since i got so many interested in low level stuff so this huff learning teach me so much on how the actual of EVM works, and to be honest, its really really fun!
 
 alright alright so in this kind of repo im just do bunch of stuff translating from `Counter.sol` the default guy from forge init project with some additional stuff to huff
