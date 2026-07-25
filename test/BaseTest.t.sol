@@ -5,24 +5,21 @@ import {Test} from "forge-std/Test.sol";
 
 import {Counter} from "../src/Counter.sol";
 import {ICounter} from "../src/interfaces/ICounter.sol";
-import {HuffNeoDeployer} from "foundry-huff-neo/HuffNeoDeployer.sol";
 
-contract CounterTest is Test {
+contract BaseTest is Test {
     ICounter counter;
-    ICounter counterHuff;
 
-    function setUp() public {
+    function setUp() public virtual {
         counter = ICounter(new Counter());
-        counterHuff = ICounter(HuffNeoDeployer.deploy("src/Counter.huff"));
     }
 
-    function test_Sol() public {
+    function test_workflow() public {
         counter.setNumber(42);
         assertEq(counter.getNumber(), 42);
     }
 
-    function test_Huff() public {
-        counterHuff.setNumber(42);
-        assertEq(counterHuff.getNumber(), 42);
+    function test_fuzz_workflow(uint256 num) public {
+        counter.setNumber(num);
+        assertEq(counter.getNumber(), num);
     }
 }
