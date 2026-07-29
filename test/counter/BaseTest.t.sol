@@ -3,8 +3,8 @@ pragma solidity ^0.8.33;
 
 import {Test} from "forge-std/Test.sol";
 
-import {Counter} from "../src/Counter.sol";
-import {ICounter} from "../src/interfaces/ICounter.sol";
+import {Counter} from "../../src/Counter.sol";
+import {ICounter} from "../../src/interfaces/ICounter.sol";
 
 contract BaseTest is Test {
     ICounter counter;

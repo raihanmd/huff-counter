@@ -1,1 +1,3 @@
 foundry-huff-neo=lib/foundry-huff-neo/src/
+@openzeppelin/=lib/openzeppelin-contracts/
+@huffmate-neo/=lib/huffmate-neo/src/

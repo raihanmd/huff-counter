@@ -2,7 +2,7 @@
 pragma solidity 0.8.33;
 
 import {BaseTest} from "./BaseTest.t.sol";
-import {ICounter} from "../src/interfaces/ICounter.sol";
+import {ICounter} from "../../src/interfaces/ICounter.sol";
 import {HuffNeoDeployer} from "foundry-huff-neo/HuffNeoDeployer.sol";
 
 contract HuffTest is BaseTest {

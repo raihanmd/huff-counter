@@ -4,3 +4,9 @@
 [submodule "lib/foundry-huff-neo"]
 	path = lib/foundry-huff-neo
 	url = https://github.com/cakevm/foundry-huff-neo
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/huffmate-neo"]
+	path = lib/huffmate-neo
+	url = https://github.com/cakevm/huffmate-neo
